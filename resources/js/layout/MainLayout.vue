@@ -1,6 +1,34 @@
 <template>
     <v-card>
         <v-layout>
+            <v-navigation-drawer
+                v-model="drawer"
+                :rail="rail"
+                permanent
+                @click="rail = false"
+            >
+                <v-list-item
+                    prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
+                    title="John Leider"
+                    nav
+                >
+                    <template v-slot:append>
+                        <v-btn
+                            variant="text"
+                            icon="mdi-chevron-left"
+                            @click.stop="rail = !rail"
+                        ></v-btn>
+                    </template>
+                </v-list-item>
+
+                <v-divider></v-divider>
+
+                <v-list density="compact" nav>
+                    <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
+                    <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
+                    <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+                </v-list>
+            </v-navigation-drawer>
             <v-app-bar
                 color="primary"
                 prominent
@@ -17,21 +45,11 @@
 
                 <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
             </v-app-bar>
-
-            <v-navigation-drawer
-                image="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
-                permanent
-                theme="dark"
-            >
-                <v-list nav>
-                    <v-list-item prepend-icon="mdi-email" title="Inbox" value="inbox"></v-list-item>
-                    <v-list-item prepend-icon="mdi-account-supervisor-circle" title="Supervisors" value="supervisors"></v-list-item>
-                    <v-list-item prepend-icon="mdi-clock-start" title="Clock-in" value="clockin"></v-list-item>
-                </v-list>
-            </v-navigation-drawer>
-
             <v-main style="height: 95vh;">
-                <v-card-text>
+                <v-card title="Página de exemplo" color="yellow" height="80">
+                    <v-breadcrumbs :items="['Foo', 'Bar', 'Fizz']" style="padding-top: 0"></v-breadcrumbs>
+                </v-card>
+                <v-card-text style="padding: 20px; background-color: antiquewhite" >
                     The navigation drawer will appear from the bottom on smaller size screens.
                 </v-card-text>
             </v-main>
@@ -41,7 +59,18 @@
 
 <script>
 export default {
-    name: "MainLayout"
+    name: "MainLayout",
+    data () {
+        return {
+            drawer: true,
+            items: [
+                { title: 'Home', icon: 'mdi-home-city' },
+                { title: 'My Account', icon: 'mdi-account' },
+                { title: 'Users', icon: 'mdi-account-group-outline' },
+            ],
+            rail: true,
+        }
+    },
 }
 </script>
 

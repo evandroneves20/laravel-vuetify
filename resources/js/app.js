@@ -13,6 +13,7 @@ import router from "./router";
 app.use(router);
 
 ///Vuetify
+import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import {createVuetify} from "vuetify";
 import * as components from 'vuetify/components';
@@ -23,6 +24,8 @@ const vuetify = createVuetify({
     directives
 })
 
-app.use(vuetify);
+app.use(vuetify, {
+    iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
+});
 
 app.mount('#app');

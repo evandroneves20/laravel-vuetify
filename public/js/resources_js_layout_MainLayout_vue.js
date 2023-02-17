@@ -12,7 +12,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "MainLayout"
+  name: "MainLayout",
+  data: function data() {
+    return {
+      drawer: true,
+      items: [{
+        title: 'Home',
+        icon: 'mdi-home-city'
+      }, {
+        title: 'My Account',
+        icon: 'mdi-account'
+      }, {
+        title: 'Users',
+        icon: 'mdi-account-group-outline'
+      }],
+      rail: true
+    };
+  }
 });
 
 /***/ }),
@@ -30,31 +46,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_v_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-btn");
+  var _component_v_list_item = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-list-item");
+  var _component_v_divider = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-divider");
+  var _component_v_list = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-list");
+  var _component_v_navigation_drawer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-navigation-drawer");
   var _component_v_app_bar_nav_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-app-bar-nav-icon");
   var _component_v_toolbar_title = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-toolbar-title");
   var _component_v_spacer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-spacer");
-  var _component_v_btn = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-btn");
   var _component_v_app_bar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-app-bar");
-  var _component_v_list_item = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-list-item");
-  var _component_v_list = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-list");
-  var _component_v_navigation_drawer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-navigation-drawer");
+  var _component_v_breadcrumbs = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-breadcrumbs");
+  var _component_v_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-card");
   var _component_v_card_text = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-card-text");
   var _component_v_main = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-main");
   var _component_v_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-layout");
-  var _component_v_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("v-card");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_v_card, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_layout, null, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_app_bar, {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_navigation_drawer, {
+            modelValue: $data.drawer,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return $data.drawer = $event;
+            }),
+            rail: $data.rail,
+            permanent: "",
+            onClick: _cache[2] || (_cache[2] = function ($event) {
+              return $data.rail = false;
+            })
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
+                "prepend-avatar": "https://randomuser.me/api/portraits/men/85.jpg",
+                title: "John Leider",
+                nav: ""
+              }, {
+                append: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_btn, {
+                    variant: "text",
+                    icon: "mdi-chevron-left",
+                    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+                      return $data.rail = !$data.rail;
+                    }, ["stop"]))
+                  })];
+                }),
+                _: 1 /* STABLE */
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_divider), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list, {
+                density: "compact",
+                nav: ""
+              }, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
+                    "prepend-icon": "mdi-home-city",
+                    title: "Home",
+                    value: "home"
+                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
+                    "prepend-icon": "mdi-account",
+                    title: "My Account",
+                    value: "account"
+                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
+                    "prepend-icon": "mdi-account-group-outline",
+                    title: "Users",
+                    value: "users"
+                  })];
+                }),
+                _: 1 /* STABLE */
+              })];
+            }),
+
+            _: 1 /* STABLE */
+          }, 8 /* PROPS */, ["modelValue", "rail"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_app_bar, {
             color: "primary",
             prominent: ""
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_app_bar_nav_icon, {
                 variant: "text",
-                onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-                  return _ctx.drawer = !_ctx.drawer;
+                onClick: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+                  return $data.drawer = !$data.drawer;
                 }, ["stop"]))
               }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_toolbar_title, null, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -73,42 +142,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               })];
             }),
             _: 1 /* STABLE */
-          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_navigation_drawer, {
-            image: "https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg",
-            permanent: "",
-            theme: "dark"
-          }, {
-            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list, {
-                nav: ""
-              }, {
-                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
-                    "prepend-icon": "mdi-email",
-                    title: "Inbox",
-                    value: "inbox"
-                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
-                    "prepend-icon": "mdi-account-supervisor-circle",
-                    title: "Supervisors",
-                    value: "supervisors"
-                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_list_item, {
-                    "prepend-icon": "mdi-clock-start",
-                    title: "Clock-in",
-                    value: "clockin"
-                  })];
-                }),
-                _: 1 /* STABLE */
-              })];
-            }),
-
-            _: 1 /* STABLE */
           }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_main, {
             style: {
               "height": "95vh"
             }
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_card_text, null, {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_card, {
+                title: "Página de exemplo",
+                color: "yellow",
+                height: "80"
+              }, {
+                "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_breadcrumbs, {
+                    items: ['Foo', 'Bar', 'Fizz'],
+                    style: {
+                      "padding-top": "0"
+                    }
+                  })];
+                }),
+                _: 1 /* STABLE */
+              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_v_card_text, {
+                style: {
+                  "padding": "20px",
+                  "background-color": "antiquewhite"
+                }
+              }, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" The navigation drawer will appear from the bottom on smaller size screens. ")];
                 }),
